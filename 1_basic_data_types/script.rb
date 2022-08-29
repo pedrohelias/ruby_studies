@@ -57,7 +57,7 @@ p "String"[-1] #vai retornando os carcteres de trás pra frente. No caso retorna
 puts "Teste \n de \n Strings\sutilizando caracteres de \t escape. É possível também \"citar qualquer coisa mesmo usando\" aspas duplas. A linguagem entende :)"
 
 #interporlaçaõ de strings: 
-# Se quer fazer menção a variáveis externas ao print, é possível realizar utilizando a interpolação. Ex:
+# Se quer fazer menção a variáveis externas ao print, é possível realizar utilizando a interpolação.  Apenas dentro de strings Ex:
 
 nome = "Pedro"
 
