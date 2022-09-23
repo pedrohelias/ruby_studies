@@ -66,7 +66,7 @@ module ThePresent
     def now
       puts "It's #{Time.new.hour > 12 ? Time.new.hour - 12 : Time.new.hour}:#{Time.new.min} #{Time.new.hour > 12 ? 'PM' : 'AM'} (GMT)."
     end
-  end
+end
   
   class TheHereAnd
     extend ThePresent
@@ -74,20 +74,20 @@ module ThePresent
   
 TheHereAnd.now
 
-#Exemplo interessnate 
+# Exemplo interessnate 
 
 module Languages
     FAVE = "Ruby"  # This is what you typed before, right? :D
-  end
+end
   
-  class Master
+class Master
   include Languages
   
     def initialize; end
     def victory
       puts FAVE
     end
-  end
+end
   
   total = Master.new
   total.victory
