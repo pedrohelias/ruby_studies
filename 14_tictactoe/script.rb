@@ -32,9 +32,9 @@ class Jogador
 end
 
 p1 = Jogador.new("Pedro", "X")
-p2 = Jogador.new("Pedro", "0")
+p2 = Jogador.new("Pedro", "Y")
 
-while (!vitoria )
+while (!vitoria)
 
     puts "[#{a0}] [#{a1}] [#{a2}]\n[#{b0}] [#{b1}] [#{b2}]\n[#{c0}] [#{c1}] [#{c2}]\n"
 
@@ -74,7 +74,13 @@ while (!vitoria )
         puts "teste"
     end
 
-
+     
+    if(a0 == "X" && a1 == "X" && a2 == "X") 
+        puts "jogo acabou"
+        a0 = a1 = a2 = "-"
+        puts "[#{a0}] [#{a1}] [#{a2}]\n[#{b0}] [#{b1}] [#{b2}]\n[#{c0}] [#{c1}] [#{c2}]\n"
+        vitoria = true 
+    end
 
 end 
 
