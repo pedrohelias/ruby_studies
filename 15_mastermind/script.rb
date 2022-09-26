@@ -22,15 +22,17 @@ class Mastermind
         @dificuldade = dificuldade 
     end
 
-    public def insereSenha()
 
+    public def insereSenha()
         puts "Insira a senha!"
-        @senha = gets.chomp 
+        @senha = gets.chomp
     end
+
 
     private def mostraSenha
         puts @senha
     end
+
 
     public def verificarSenha(senhaDigitada)
         senhaSplit = senhaDigitada.split("")
@@ -41,40 +43,63 @@ class Mastermind
         contem = 0
         quebra = false 
 
+        # loop do 
+        #     puts senhaSistema[contador]
+        #     contador = contador + 1
+        
+        #     break if contador == 4
+        # end
 
-        senhaSplit.each do |algarismo|
-            
-            # senhaSistema.each do |comp| 
-            
-            #     if algarismo == comp
-            #         contem = contem + 1
-            #     end
+        senhaSplit.each_with_index do |algoritmo,indice|
+            #puts "Vou comparar o #{algoritmo} agora na posicao #{indice}"
+            loop do
+                if algoritmo == senhaSistema[contador]
+                    
+                    if(indice == contador)
+                        posicaoCorreta = posicaoCorreta + 1
+                    else
+                        possicaoIncorreta = possicaoIncorreta + 1
+                    end
 
-            # end
-
-            if algarismo == senhaSistema[contador]
-                contem = contem + 1
-                contador = contador + 1
-            else
-                contador = contador + 1
+                    contador = contador + 1
+                else
+                    contador = contador + 1
+                end
+                
+                break if contador == 4
+                
             end
 
+            contador = 0
+            
         end
 
-        puts "Contem #{contem} algarismos iguais"
+        puts "Contem #{posicaoCorreta} algarismos na posicao correta\nContem #{possicaoIncorreta} algarismos na posição incorreta"
+        puts "\n"
+
+        if posicaoCorreta == 4
+            return true 
+        else 
+            return false
+        end
     end
 
     public def jogar
         fimDeJogo = false
+        contadorTentativa = 0
 
         while(!fimDeJogo)
+            contadorTentativa = contadorTentativa + 1
             puts "digite a senha para tentar descobrir"
-            tentativa = gets.chomp 
-            verificarSenha(tentativa)
+            tentativa = gets.chomp
+            verificador = verificarSenha(tentativa)
 
-
+            if verificador == true
+                puts "O jogador acertou a senha com #{contadorTentativa} tentativas"
+                fimDeJogo = true
+            end
         end
-
+    
     end
 
 
