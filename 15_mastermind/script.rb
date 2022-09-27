@@ -15,15 +15,16 @@ class Jogador
 end
 
 class Mastermind
-    attr_accessor :senha, :dificuldade
+    attr_accessor :senha, :dificuldade, :classeJogador #permitindo com que as variáveis da classem sejam editaveis e visiveis
 
 
-    def initialize(dificuldade="Facil")
+    def initialize(dificuldade="Facil", classeJogador)
         @dificuldade = dificuldade 
+        @classeJogador = classeJogador #preparando a chamada da classe internamente a classe Mastermind, sendo possível chamar a classe Jogador dentro da classe Mastermind
     end
 
 
-    public def insereSenha()
+    public def insereSenha
         puts "Insira a senha!"
         @senha = gets.chomp
     end
@@ -95,7 +96,7 @@ class Mastermind
             verificador = verificarSenha(tentativa)
 
             if verificador == true
-                puts "O jogador acertou a senha com #{contadorTentativa} tentativas"
+                puts "O jogador #{classeJogador.nome} acertou a senha com #{contadorTentativa} tentativa(s)" #classeJogador.nome fará a chamada do nome do usuario
                 fimDeJogo = true
             end
         end
@@ -105,11 +106,11 @@ class Mastermind
 
 end
 
-# jogador1 = Jogador.new()
-# jogador1.insereNome
+jogador1 = Jogador.new()
+jogador1.insereNome
 # jogador1.apresentacao
 
-senha1 = Mastermind.new("Facil")
+senha1 = Mastermind.new("Facil", jogador1 )
 senha1.insereSenha
 #puts senha1.dificuldade - mostrar a dificuldade
 senha1.jogar
