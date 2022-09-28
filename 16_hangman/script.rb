@@ -1,5 +1,5 @@
 class Jogador
-    attr_accessor :name
+    attr_accessor :nome
 
     def initialize
     end
@@ -58,6 +58,7 @@ class Hangman
 
         while palavraSplit != palavraJogador
             
+            puts "Palavra a ser acertada: #{palavraJogador}\nEla possui #{palavraJogador.length} letras!"
             puts "Selecione uma letra"
             puts "As letras já utilizadas foram: #{letrasUtilizadas}" #vai controlar as letras que ja foram utilizadas para o jogaodor não repetir
             letrasUtilizadas[count] = gets.chomp 
@@ -76,7 +77,7 @@ class Hangman
                 
             end
 
-            puts "Palavra a ser acertada: #{palavraJogador}"
+            
             puts "\n"
 
             count = count + 1
@@ -86,7 +87,7 @@ class Hangman
         
         end
 
-       # puts "Parabéns #{classeJogador.nome}, você acertou a palavra: #{palavra}"
+        puts "Parabéns #{classeJogador.nome}, você acertou a palavra #{palavra} utilizando #{count} jogadas"
 
     end
 
