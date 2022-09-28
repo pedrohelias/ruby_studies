@@ -60,32 +60,33 @@ class Hangman
             
             puts "Selecione uma letra"
             puts "As letras já utilizadas foram: #{letrasUtilizadas}" #vai controlar as letras que ja foram utilizadas para o jogaodor não repetir
-            letrasUtilizadas = gets.chomp 
+            letrasUtilizadas[count] = gets.chomp 
 
-            letrasUtilizadas[rodada].each_with_index do |ponteiroLetras,index| #vai pegar a letrar e comparar com a palavra selecionada a ser descoberta.
+            palavraSplit.each_with_index do |ponteiroSplit,index| #vai pegar a letrar e comparar com a palavra selecionada a ser descoberta.
                 
-                loop do
-                    if ponteiroLetras == palavraSplit[count]
-                        palavraJogador[index] = palavraSplit[index]
-                        count = count + 1
-                    else
-                        count = count + 1
-                    end
+                #Esse each_with_index vai iterar a palavra sorteada contra a letra digitada. Se a letra digitada bate com a letra iterada da palavra sorteada, então a palavra do usuário é preenchida nos pontos especificos. Deu pra enteder? kkk :)
 
-                    break if count == palavraSplit.length
+                if ponteiroSplit == letrasUtilizadas[count]
+                    palavraJogador[index] = ponteiroSplit #vai preencher a palavra em caso de acerto de letras
                 end
 
-                puts "a palavra está desse jeito: #{palavraJogador}"
+                #puts "a palavra está desse jeito: #{palavraJogador}"
+                #puts index 
             
+                
             end
 
+            puts "Palavra a ser acertada: #{palavraJogador}"
+            puts "\n"
 
+            count = count + 1
 
             rodada = rodada + 1 #vai rotacionar o contador das letras utilizadas 
         
         
         end
 
+       # puts "Parabéns #{classeJogador.nome}, você acertou a palavra: #{palavra}"
 
     end
 
